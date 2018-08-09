@@ -1,0 +1,21 @@
+{
+  "name": "Captcha Capture",
+  "version": "1",
+  "browser_action":
+  {
+    "default_icon": "images/icon.png"
+  },
+  "background":
+  {
+    "scripts": ["html2canvas.js", "jquery.min.js", "properties.js"]
+  },
+  "content_scripts": [{
+        "matches": [
+            "http://*/*",
+            "https://*/*"
+        ],
+        "js": ["jquery.min.js", "html2canvas.js"]
+    }],
+  "permissions": ["tabs", "<all_urls>"],
+  "manifest_version": 2
+}
