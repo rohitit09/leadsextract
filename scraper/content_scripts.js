@@ -37,8 +37,14 @@ function injectTheScript() {
 		// }
 
     // var data=jQuery(".results-list")
-		var data=document.getElementById("results-list")
-		data=data.children
+		try{
+			var data=document.getElementById("results-list")
+			data=data.children
+		}catch(rr){
+			var data=document.getElementsByTagName("pv5 pr6")
+		}
+		// var data=document.getElementById("results-list")
+
 		console.log(data)
     var arr = []
 		for (var i=0; i<data.length; i++){
@@ -101,7 +107,46 @@ function injectTheScript() {
 						console.log("class name info' changed")
 					}
 				}catch(err){
-					console.log("class name 'entity-info' changed")
+					try{
+						// person=title.getElementsByClassName("name-container")[0].innerText
+						person=data[i].getElementsByTagName("dl")[0].getElementsByTagName("dt")[0].textContent
+					}catch(err){
+						console.log(err)
+						person=""
+					}
+					try{
+						// company_name=title.getElementsByClassName("details-container")[0].getElementsByClassName("company-name")[0].innerText
+						company_name=data[i].getElementsByTagName("dl")[0].getElementsByTagName("dd")[1].textContent
+					}catch(err){
+						console.log(err)
+						company_name=""
+					}
+					// }catch(err){
+					// 	console.log("class name 'name-and-badge-container' changed")
+					// }
+					// try{
+					// var info=temp.getElementsByClassName("info")[0]
+					try{
+						// name=info.getElementsByClassName("info-value")[0].innerText
+						name=data[i].getElementsByTagName("dl")[0].getElementsByTagName("dd")[1].textContent
+					}catch(err){
+						console.log(err)
+						name=""
+					}
+					try{
+						// exp=info.getElementsByClassName("info-value")[1].innerText
+						exp=data[i].getElementsByTagName("dl")[0].getElementsByTagName("dd")[2].textContent
+					}catch(err){
+						console.log(err)
+						exp=""
+					}
+					try{
+						// loc=info.getElementsByClassName("info-value")[2].innerText
+						loc=data[i].getElementsByTagName("dl")[0].getElementsByTagName("dd")[3].textContent
+					}catch(err){
+						console.log(err)
+						loc=""
+					}
 				}
 
 				// console.log(person)
