@@ -34,14 +34,17 @@ def updatecsv():
         data['insertime']=datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
         if os.path.exists(os.getcwd()+"/data.csv"):
             bool=True
-        with open('data.csv', 'a', newline='') as csvfile:
-        # with open('data.csv', 'a') as csvfile:
+        # with open('data.csv', 'a', newline='') as csvfile:
+        with open('data.csv', 'a') as csvfile:
             fieldnames = ['person_name', 'company_name',"position","experience","location","insertime"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            # writer = csv.DictWriter(csvfile, fieldnames=fieldnames,lineterminator='\n')
+            # writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames,lineterminator='\n')
             if not bool:
                 writer.writeheader()
-            writer.writerow(data)
+            try:
+                writer.writerow(data)
+            except Exception:
+                print(str(e))
     return jsonify({"msg":"csv upadted"})
 
 
