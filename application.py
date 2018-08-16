@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Librarys
 from flask import Flask, jsonify,request
-import pandas as pd
+# import pandas  as pd
 import datetime
 import csv
 import os
