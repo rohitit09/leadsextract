@@ -3,7 +3,9 @@
 ## requirnments
 >> python3
 >> pip3
->> pip3 install requirnments.txt
+
+## install requirnments
+>>pip3 install requirnments.txt
 ## run application
 >> python3 application.py
 
